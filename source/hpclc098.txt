@@ -1,0 +1,18 @@
+
+       OS/2 Upload Information Template for ftp-os2.nmsu.edu
+
+Archive Name: hpclc098.zip
+Program Description: PM calculator(RPN) similar to HP 41C, ver 0.98
+Operating System Versions: OS/2 2.x, 3.x 4.x
+Program Source: steve53@earthlink.net
+Replaces: /os2/wpsutil/hpclc097.zip
+
+Your name: Steven H. Levine
+Your email address: steve53@earthlink.net
+
+Proposed directory for placement: /os2/wpsutil
+
+Changes from previous version are:
+   - interface.c: avoid startup traps when stack[0] zero
+   - interface.c: turn off debug code (created j file)
+   - makefile: add DEBUG support

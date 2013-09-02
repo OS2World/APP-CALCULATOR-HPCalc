@@ -1,0 +1,124 @@
+/* HPcalc.rc */
+
+#include <os2.h>
+#include "HPcalc.h"
+
+ICON ID_HPCALC HPcalc.ico
+/* icon number does not matter, but it has to be the first icon */
+
+MENU ID_HPCALC
+BEGIN
+        SUBMENU "~File",                IDM_FILE
+        BEGIN
+          MENUITEM "E~xit\tF3",         IDM_EXIT
+          MENUITEM SEPARATOR
+          SUBMENU "~Configuration",     IDM_CONF
+          BEGIN
+            MENUITEM "~XYZT Mode",      IDM_XYZT
+            MENUITEM "Small ~Window",   IDM_SIZE
+            MENUITEM "1000s ~Separators",IDM_COMMA
+/*
+            MENUITEM "~Background Color",       IDM_BACKCOLOR, MIA_DISABLED
+            MENUITEM "Shift ~Text Color",       IDM_SHIFTCOLOR, MIA_DISABLED
+*/
+          END
+          MENUITEM SEPARATOR
+          MENUITEM "~About HPcalc",             IDM_ABOUT
+        END
+        SUBMENU "~Edit",                IDM_EDIT
+        BEGIN
+          MENUITEM "~Copy\tDel",        IDM_COPY
+          MENUITEM "~Paste\tIns",       IDM_PASTE
+        END
+        SUBMENU "F~uncs",           IDM_FUNC  /* */
+        BEGIN
+          MENUITEM "~DEC-HEX-OCT ...",  IDM_HEX_OCT
+          SUBMENU "~Hyperbolics",       IDM_HYP
+          BEGIN
+            MENUITEM "~SinH",           IDM_HYP_SIN
+            MENUITEM "~CosH",           IDM_HYP_COS
+            MENUITEM "~TanH",           IDM_HYP_TAN
+            MENUITEM "aSinH",           IDM_HYP_ASIN
+            MENUITEM "aCosH",           IDM_HYP_ACOS
+            MENUITEM "aTanH",           IDM_HYP_ATAN
+          END
+          SUBMENU "~Statistics",        IDM_STAT
+          BEGIN
+            MENUITEM "~X'",             IDM_STAT_X1
+            MENUITEM "~Y'",             IDM_STAT_Y1
+            MENUITEM "~Slope",          IDM_STAT_SLOPE
+            MENUITEM "~Intercept",      IDM_STAT_INT
+            MENUITEM "Co~rrelation",    IDM_STAT_CORR
+            MENUITEM SEPARATOR
+            MENUITEM "pop. S~DEV",      IDM_STAT_SDEV
+            MENUITEM "y~Px  Permb",     IDM_STAT_PERM
+            MENUITEM "y~Cx  Comb.",     IDM_STAT_COMB
+          END
+          SUBMENU "~Constants",         IDM_CON
+          BEGIN
+            MENUITEM "~c\t(m/s)",       IDM_CON_C
+            MENUITEM "Planck ~h\t(J s)",IDM_CON_H
+            MENUITEM "Charge ~e\t(C)",  IDM_CON_E
+            MENUITEM "Permeability æ0\t(H/m)",  IDM_CON_U0
+            MENUITEM "Permittivity î0\t(F/m)",  IDM_CON_E0
+            MENUITEM "~Avogadro's #",   IDM_CON_NA
+          END
+          SUBMENU "Con~versions",       IDM_CONV
+          BEGIN
+            MENUITEM "øF->øC",          IDM_CONV_FC
+            MENUITEM "øC->øF",          IDM_CONV_CF
+            MENUITEM "inch->mm",        IDM_CONV_INMM
+            MENUITEM "mm->inch",        IDM_CONV_MMIN
+            MENUITEM "miles->km",       IDM_CONV_MIKM
+            MENUITEM "km->miles",       IDM_CONV_KMMI
+          END
+        END
+END
+
+ACCELTABLE ID_HPCALC
+BEGIN
+/* copy these back to the interface.c and hex-oct.c because <8*> and <=+> do
+ not work here alone, the </?> key does not work on the german keyboard. So
+ move all of the non-virtual keys so that strange keyboards should work.
+*/
+  "0",        K_0,              CHAR
+  "1",        K_1,              CHAR
+  "2",        K_2,              CHAR
+  "3",        K_3,              CHAR
+  "4",        K_4,              CHAR
+  "5",        K_5,              CHAR
+  "6",        K_6,              CHAR
+  "7",        K_7,              CHAR
+  "8",        K_8,              CHAR
+  "9",        K_9,              CHAR
+  "+",        K_PLU,            CHAR
+  "-",        K_MIN,            CHAR
+  "*",        K_MUL,            CHAR
+  "/",        K_DIV,            CHAR
+  ".",        K_DOT,            CHAR
+  ",",        K_DOT,            CHAR
+
+  "c",        IDM_COPY,         CHAR,ALT
+  "q",        IDM_EXIT,         CHAR,ALT
+  "v",        IDM_PASTE,        CHAR,ALT
+  "x",        IDM_EXIT,         CHAR,ALT
+
+  VK_F3,      IDM_EXIT,         VIRTUALKEY
+  VK_INSERT,  IDM_PASTE,        VIRTUALKEY
+  VK_INSERT,  IDM_PASTE,        VIRTUALKEY,SHIFT
+  VK_INSERT,  IDM_COPY,         VIRTUALKEY,CONTROL
+  VK_DELETE,  IDM_COPY,         VIRTUALKEY
+  VK_DELETE,  IDM_COPY,         VIRTUALKEY,SHIFT
+
+  VK_BACKSPACE,  K_BS,          VIRTUALKEY
+  VK_DOWN,    K_RD,             VIRTUALKEY
+  VK_UP,      K_RU,             VIRTUALKEY
+  VK_LEFT,    K_BS,             VIRTUALKEY
+  VK_ENTER,   K_ENT,            VIRTUALKEY
+  VK_NEWLINE, K_ENT,            VIRTUALKEY
+END
+
+
+rcinclude "HPcalcD.dlg"
+
+

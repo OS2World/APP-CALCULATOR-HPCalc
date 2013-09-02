@@ -1,0 +1,51 @@
+
+Obsolete.  Keep with source for now (SHL)
+
+Internal revision information:
+* = internal changes
+- = bug fixes
++ = additional functionality
+
+version 0.95 - 1995 March 12
+------------
+- several B&W forms removed from HPcalc.ico file because they would cause
+  the ico not to show up. the XGA/8514 BW form seems to be okay
+* makefile changed slightly in the linking stage to conform to the emx
+  sample pm program
+* use defines for summation array elements
+* add missing return((MRESULT)0) to all the function called from menu
+* create sub AcceptValue as a short cut for menu functions
+* add option for link386 for faster loading
+* compress resources for faster loading and smaller file with rc -x1
+  (x1 is compatable with 2.x, x2 is better but for 3.x)
+
+version 0.94 - 1995 Feb 12
+------------
+* put pres-params variables in change.h
+* change icon to include small color icons used in warp3.0
+
+version 0.93 - 1994 May 19 to 1994 May 23
+------------
+* copy number keys to interface.c and hex-oct.c from hpcalc.rc because
+- keys that require shift not working are fixed (the keys that did on work
+  vary with the keyboard used, ie. on the US <shift><=+>)
+
+version 0.92 - 1994 Feb. 8 to 1994 Mar. 10
+------------
++ thousands separators
++ ->HMS and ->HR
+
+version 0.91 - 1994 Feb. 6 to Feb. 8
+------------
+* separate about dialog box into a separate file so that the dialog editor
+  can be used to modify it.
+* This also required renumbering of all the buttons
+* move number and virtual keys from interface.c and hex-oct.c to hpcalc.rc
++ add FEX mode (FIX mode except that overflows into ENG instead of SCI)
++ add Roll Up function to up arrow.
++ add MOD(ulus) function
+- fixed bug with large number of digits copyed to clipboard in FIX mode
+- fixed cut and paste problems in DEC-HEX-OCT modes
+- fixed cut and paste menu displaying the wrong accelerator keys
+
+

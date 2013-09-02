@@ -1,0 +1,44 @@
+DLGINCLUDE 1 "HPcalc.h"
+
+DLGTEMPLATE ID_HEX_OCT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "DEC-HEX-OCT", ID_HEX_OCT, 18, 42, 89, 70, , FCF_TITLEBAR
+    BEGIN
+        GROUPBOX        "Group", 106, 7, 24, 79, 43
+        AUTORADIOBUTTON "~Decimal", ID_RADIO_DEC, 14, 49, 68, 10, WS_TABSTOP
+        AUTORADIOBUTTON "Hexadecimal", ID_RADIO_HEX, 14, 39, 68, 10, 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Octal", ID_RADIO_OCT, 14, 29, 68, 10, WS_TABSTOP
+        PUSHBUTTON      "Dismiss", ID_BUT_HEX, 28, 4, 40, 14
+    END
+END
+
+DLGTEMPLATE ID_HPDLG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Product Information", ID_HPDLG, 24, 18, 180, 121, , FCF_SYSMENU | 
+            FCF_TITLEBAR
+            PRESPARAMS PP_FOREGROUNDCOLOR, 0x00EFD700L
+            PRESPARAMS PP_BACKGROUNDCOLOR, 0x00281905L
+    BEGIN
+        CTEXT           "HPcalc 41C", -1, 42, 95, 100, 15, NOT WS_GROUP
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00EFD700L
+                        PRESPARAMS PP_FONTNAMESIZE, "18.Helv"
+        CTEXT           "Version 0.98", -1, 4, 84, 170, 9, NOT WS_GROUP
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00DCDCDCL
+        CTEXT           "This software is free.", -1, 4, 69, 170, 9, NOT 
+                        WS_GROUP
+        CTEXT           "Send comments (via email) to:", -1, 4, 60, 170, 9, 
+                        NOT WS_GROUP
+        CTEXT           "ae151@freenet.carleton.ca", -1, 4, 51, 170, 9, NOT 
+                        WS_GROUP
+        CTEXT           "(C) Copyright  Les Chan 1993,1994", -1, 4, 38, 170, 
+                        9, NOT WS_GROUP
+        DEFPUSHBUTTON   "~Dismiss", DID_OK, 66, 15, 47, 14, NOT WS_TABSTOP
+                        PRESPARAMS PP_BORDERCOLOR, 0x00DCDCDCL
+        ICON            ID_HPCALC, -1, 10, 94, 20, 16, WS_GROUP
+        GROUPBOX        "Color", -1, 144, 91, 31, 26
+        ENTRYFIELD      "", ID_BG_COLOR, 149, 95, 21, 14, NOT ES_AUTOSCROLL | 
+                        NOT WS_TABSTOP
+    END
+END
+
